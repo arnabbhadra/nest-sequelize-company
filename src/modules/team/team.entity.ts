@@ -1,5 +1,6 @@
 import {
   Table,
+  PrimaryKey,
   Column,
   Model,
   DataType,
@@ -13,6 +14,7 @@ import {
 import { Company } from '../company/company.entity';
 @Table
 export class Team extends Model<Team> {
+  @PrimaryKey
   @Column({
     type: DataType.UUID,
     defaultValue: DataType.UUIDV4,
@@ -27,7 +29,7 @@ export class Team extends Model<Team> {
   teamLeadName: string;
 
   @ForeignKey(() => Company)
-  @Column
+  @Column(DataType.UUID)
   companyId: string;
 
   @BelongsTo(() => Company)

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
+import { Controller, Get, Post, Param, Body, Query } from '@nestjs/common';
 import { CompanyService } from './company.service';
 import { CompanyDto } from './dto/company.dto';
 import { Company } from './company.entity';
@@ -11,8 +11,20 @@ export class CompanyController {
         return await this.companyService.create(company);
     }
 
-    @Get('uuid')
+    @Get('all')
+    async findAll(): Promise<Company[]>{
+        return await this.companyService.findAll();
+    }
+    
+    @Get(':uuid')
     async findOne( @Param('uuid') uuid: string): Promise<Company>{
         return await this.companyService.findOneById(uuid);
     }
+
+    @Get()
+    async findByName( @Query('name') name: string): Promise<Company[]>{
+        return await this.companyService.findByName(name);
+    }
+
+    
 }
