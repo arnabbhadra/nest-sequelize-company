@@ -8,8 +8,7 @@ import {
   BelongsTo,
   CreatedAt,
   UpdatedAt,
-  DeletedAt
-
+  DeletedAt,
 } from 'sequelize-typescript';
 import { Company } from '../company/company.entity';
 @Table

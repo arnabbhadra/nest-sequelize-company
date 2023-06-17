@@ -7,23 +7,27 @@ import { Team } from '../team/team.entity';
 import { Op } from 'sequelize';
 @Injectable()
 export class CompanyService {
+  constructor(
+    @Inject(COMPANY_REPOSITORY)
+    private readonly companyRepository: typeof Company,
+  ) {}
 
-    constructor(@Inject(COMPANY_REPOSITORY) private readonly companyRepository: typeof Company) { }
+  async create(company: CompanyDto): Promise<Company> {
+    return await this.companyRepository.create<Company>(company);
+  }
 
-    async create(company: CompanyDto): Promise<Company> {
-        return await this.companyRepository.create<Company>(company);
-    }
-
-
-    async findOneById(uuid: string): Promise<Company> {
-        return await this.companyRepository.findOne<Company>({ where: { uuid }, include: [Team] });
-    }
-    async findByName(name: string): Promise<Company[]>{
-        return await this.companyRepository.findAll<Company>(
-            {where:
-                { companyName: {[Op.iLike]: `%${name}%`}}})
-    }
-    async findAll(): Promise<Company[]>{
-        return await this.companyRepository.findAll<Company>({include: [Team]});
-    }
+  async findOneById(uuid: string): Promise<Company> {
+    return await this.companyRepository.findOne<Company>({
+      where: { uuid },
+      include: [Team],
+    });
+  }
+  async findByName(name: string): Promise<Company[]> {
+    return await this.companyRepository.findAll<Company>({
+      where: { companyName: { [Op.iLike]: `%${name}%` } },
+    });
+  }
+  async findAll(): Promise<Company[]> {
+    return await this.companyRepository.findAll<Company>({ include: [Team] });
+  }
 }

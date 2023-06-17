@@ -1,4 +1,4 @@
-import { Team } from "./team.entity";
+import { Team } from './team.entity';
 import { TEAM_REPOSITORY } from '../../core/constants';
 
 export const teamsProviders = [

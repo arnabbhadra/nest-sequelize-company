@@ -1,4 +1,4 @@
 export class TeamDto {
-    readonly teamLeadName: string;
-    readonly companyId: string;
+  readonly teamLeadName: string;
+  readonly companyId: string;
 }

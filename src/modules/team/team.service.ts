@@ -5,9 +5,10 @@ import { TEAM_REPOSITORY } from 'src/core/constants';
 
 @Injectable()
 export class TeamService {
-    constructor(@Inject(TEAM_REPOSITORY) private readonly teamRepository: typeof Team) {}
-    async create(team : TeamDto): Promise<Team>{
-        return await this.teamRepository.create<Team>(team);
-    }
-    
+  constructor(
+    @Inject(TEAM_REPOSITORY) private readonly teamRepository: typeof Team,
+  ) {}
+  async create(team: TeamDto): Promise<Team> {
+    return await this.teamRepository.create<Team>(team);
+  }
 }
