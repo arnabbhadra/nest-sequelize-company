@@ -4,6 +4,13 @@
 
 ## Installation
 
+```
+sudo docker build . -t nestjs-app
+
+```
+sudo docker run --network=host nestjs-app
+```
+```
 ```bash
 $ npm install
 ```
