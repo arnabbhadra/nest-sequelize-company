@@ -20,30 +20,30 @@ export class CompanyController {
   @Permissions(WRITE_PERMISSION)
   @UseGuards(AuthGuard('jwt'), PermissionGuard)
   @Post()
-  async create(@Body() company: CompanyDto): Promise<{data: Company}> {
-    const newCompany: Company = await this.companyService.create(company)
-    return {data: newCompany};
+  async create(@Body() company: CompanyDto): Promise<{ data: Company }> {
+    const newCompany: Company = await this.companyService.create(company);
+    return { data: newCompany };
   }
   @Permissions(READ_PERMISSION)
   @UseGuards(AuthGuard('jwt'), PermissionGuard)
   @Get('all')
-  async findAll(): Promise<{data: Company[]}> {
+  async findAll(): Promise<{ data: Company[] }> {
     const companies = await this.companyService.findAll();
-    return {data: companies};
+    return { data: companies };
   }
 
   @Permissions(READ_PERMISSION)
   @UseGuards(AuthGuard('jwt'), PermissionGuard)
   @Get(':uuid')
-  async findOne(@Param('uuid') uuid: string): Promise<{data: Company}> {
+  async findOne(@Param('uuid') uuid: string): Promise<{ data: Company }> {
     const company: Company = await this.companyService.findOneById(uuid);
-    return {data: company};
+    return { data: company };
   }
   @Permissions(READ_PERMISSION)
   @UseGuards(AuthGuard('jwt'), PermissionGuard)
   @Get()
-  async findByName(@Query('name') name: string): Promise<{data: Company[]}> {
+  async findByName(@Query('name') name: string): Promise<{ data: Company[] }> {
     const companies = await this.companyService.findByName(name);
-    return {data:companies } ;
+    return { data: companies };
   }
 }
