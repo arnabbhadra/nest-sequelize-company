@@ -19,7 +19,6 @@ export class CompanyService {
   async findOneById(uuid: string): Promise<Company> {
     return await this.companyRepository.findOne<Company>({
       where: { uuid },
-      include: [Team],
       attributes: [
         'uuid',
         'companyName',

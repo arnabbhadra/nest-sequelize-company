@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "439f7bfe-3dfe-4aef-af30-a4f9f3252742",
+		"name": "Company",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17649216"
+	},
+	"item": [
+		{
+			"name": "Create a new company",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiXSwiaWF0IjoxNjg3MDE4MzY0fQ.UzeH9AxqAvVMCkyhtlec4O4AmCyrhSo8wphIkcNOJw4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyName\": \" Y soultion\",\n    \"companyCeo\": \"peter\",\n    \"companyAddress\": \"Hyderabad 3456\",\n    \"inceptionDate\": \"01/01/2023\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a comapy by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiXSwiaWF0IjoxNjg3MDE4MzY0fQ.UzeH9AxqAvVMCkyhtlec4O4AmCyrhSo8wphIkcNOJw4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/company/:uuid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"company",
+						":uuid"
+					],
+					"variable": [
+						{
+							"key": "uuid",
+							"value": "f2bc4cee-ea19-4ea2-aac7-c2d33706aa8c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a team for an company",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiXSwiaWF0IjoxNjg3MDE4MzY0fQ.UzeH9AxqAvVMCkyhtlec4O4AmCyrhSo8wphIkcNOJw4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"teamLeadName\": \"rohit\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/team/:uuid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"team",
+						":uuid"
+					],
+					"variable": [
+						{
+							"key": "uuid",
+							"value": "5a68ea94-a374-4be1-9a7d-8436e8b85966"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search by Company Name",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJtaXNzaW9ucyI6WyJyZWFkIiwid3JpdGUiXSwiaWF0IjoxNjg3MDE4MzY0fQ.UzeH9AxqAvVMCkyhtlec4O4AmCyrhSo8wphIkcNOJw4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/company?name=Y",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"company"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Y"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All teams",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZXJtaXNzaW9ucyI6WyJyZWFkIl0sImlhdCI6MTY4NzAyNzA1N30._0ocTFbscXCaIb1z22LMrCgQuS8RKEuWyBZjUMSngSs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/company/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"company",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET JWT token for both permission",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWFkIjp0cnVlLCJ3cml0ZSI6dHJ1ZSwiaWF0IjoxNjg3MDE1MDU1fQ.12IpX7U8Ha8cqvxrDjnjteTgfoPUGJ8wl6cDUkdezqI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/auth/both",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"both"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET JWT token for read permission",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/auth/single",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"single"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

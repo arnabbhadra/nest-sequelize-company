@@ -15,7 +15,8 @@ export class TeamController {
   async create(
     @Body() team: TeamDto,
     @Param('company_id') company_id: string,
-  ): Promise<Team> {
-    return await this.teamService.create({ ...team, companyId: company_id });
+  ): Promise<{data: Team}> {
+    const newTeam = await this.teamService.create({ ...team, companyId: company_id });
+    return {data: newTeam}
   }
 }
