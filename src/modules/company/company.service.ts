@@ -20,17 +20,41 @@ export class CompanyService {
     return await this.companyRepository.findOne<Company>({
       where: { uuid },
       include: [Team],
-      attributes: ['uuid', 'companyName', 'companyCeo', 'companyAddress', 'inceptionDate']
+      attributes: [
+        'uuid',
+        'companyName',
+        'companyCeo',
+        'companyAddress',
+        'inceptionDate',
+      ],
     });
   }
   async findByName(name: string): Promise<Company[]> {
     return await this.companyRepository.findAll<Company>({
       where: { companyName: { [Op.iLike]: `%${name}%` } },
-      attributes: ['uuid', 'companyName', 'companyCeo', 'companyAddress', 'inceptionDate']
+      attributes: [
+        'uuid',
+        'companyName',
+        'companyCeo',
+        'companyAddress',
+        'inceptionDate',
+      ],
     });
   }
   async findAll(): Promise<Company[]> {
-    return await this.companyRepository.findAll<Company>({ include: {model : Team, as: "teams", attributes: ['uuid','teamLeadName']}, 
-        attributes: ['uuid', 'companyName', 'companyCeo', 'companyAddress', 'inceptionDate'] });
+    return await this.companyRepository.findAll<Company>({
+      include: {
+        model: Team,
+        as: 'teams',
+        attributes: ['uuid', 'teamLeadName'],
+      },
+      attributes: [
+        'uuid',
+        'companyName',
+        'companyCeo',
+        'companyAddress',
+        'inceptionDate',
+      ],
+    });
   }
 }

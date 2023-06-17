@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Param, Body, UseGuards } from '@nestjs/common';
+import { Controller, Post, Param, Body, UseGuards } from '@nestjs/common';
 import { TeamService } from './team.service';
 import { TeamDto } from './dto/team.dto';
 import { Team } from './team.entity';
